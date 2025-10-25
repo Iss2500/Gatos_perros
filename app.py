@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from flask import Flask, request, render_template
 from tensorflow.keras.models import load_model
 from PIL import Image
@@ -30,7 +29,6 @@ def index():
             result = f"Error: {str(e)}"
     return render_template("index.html", result=result)
 
-=======
 from flask import Flask, request, render_template
 from tensorflow.keras.models import load_model
 from PIL import Image
@@ -67,4 +65,3 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 
->>>>>>> dbe744e24fecbc9f3e30e22d3420d9eb1cfe15ee
