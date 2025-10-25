@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,3 +15,21 @@
   {% endif %}
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clasificador Gato o Perro</title>
+</head>
+<body>
+  <h1>Sube una imagen</h1>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Clasificar</button>
+  </form>
+  {% if result %}
+    <h2>Resultado: {{ result }}</h2>
+  {% endif %}
+</body>
+</html>
+>>>>>>> dbe744e24fecbc9f3e30e22d3420d9eb1cfe15ee
