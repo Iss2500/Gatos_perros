@@ -1,35 +1,61 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Clasificador Gato o Perro</title>
+    <meta charset="UTF-8">
+    <title>Clasificador de Gatos y Perros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .preview {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
-  <h1>Sube una imagen</h1>
-  <form method="POST" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required>
-    <button type="submit">Clasificar</button>
-  </form>
-  {% if result %}
-    <h2>Resultado: {{ result }}</h2>
-  {% endif %}
+    <h1>Clasificador de Gatos y Perros 🐱🐶</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" onchange="previewImage(event)">
+        <br><br>
+        <button type="submit">Clasificar</button>
+    </form>
+
+    <div class="preview">
+        <img id="preview" src="#" alt="Vista previa" style="display: none;">
+    </div>
+
+    {% if result %}
+    <div class="result">
+        <p><strong>Resultado:</strong> {{ result }}</p>
+    </div>
+    {% endif %}
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('preview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Clasificador Gato o Perro</title>
-</head>
-<body>
-  <h1>Sube una imagen</h1>
-  <form method="POST" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required>
-    <button type="submit">Clasificar</button>
-  </form>
-  {% if result %}
-    <h2>Resultado: {{ result }}</h2>
-  {% endif %}
-</body>
-</html>
->>>>>>> dbe744e24fecbc9f3e30e22d3420d9eb1cfe15ee
